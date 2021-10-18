@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  django:
+    build: /Django/DjangoAPI
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    volumes:
+      - ./Django/DjangoAPI:./Django/DjangoAPI
+    ports:
+      - "8000:8000"
+
+  react:
+    build: /reacttut/my-app
+    command: ["npm", "start"]
+    volumes:
+      - /reacttut/my-app:/reacttut/my-app
+      - node-modules:/reacttut/my-app/node_modules
+    ports:
+      - "3000:3000"
+
+volumes:
+  node-modules:
