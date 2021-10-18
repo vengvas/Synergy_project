@@ -17,6 +17,3 @@ services:
       - node-modules:/reacttut/my-app/node_modules
     ports:
       - "3000:3000"
-
-volumes:
-  node-modules:
